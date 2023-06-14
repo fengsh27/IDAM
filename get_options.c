@@ -110,7 +110,8 @@ void get_options (int argc, char* argv[])
 	 */
 	
 	/*uber_ratio = 0.1;*/
-	while ((op = getopt(argc, argv, "i:b:q:r:dsf:k:o:c:T:PSCl:h:w:n:")) >0)
+	printf("processing options ... ");
+	while ((op = getopt(argc, argv, "i:b:q:r:dsft:k:o:c:T:PSCl:h:w:n:")) >0)
 	{
 		switch (op)
 		{
