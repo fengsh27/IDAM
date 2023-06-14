@@ -66,6 +66,7 @@ typedef float continuous;
 typedef short discrete;
 
 /* global data */
+/*
 continuous **arr;
 discrete **arr_c;
 discrete *symbols;
@@ -80,6 +81,7 @@ int sub_genes_row;
 
 double uber_ratio; 
 char blast[200];
+*/
 /***** Structures *****/
 
 struct dyStack
@@ -114,6 +116,7 @@ typedef struct Prog_options{
 	char FN[LABEL_LEN];
 	char BN[LABEL_LEN];
 	char LN[LABEL_LEN];
+	char TAG[LABEL_LEN];
 	bool IS_SWITCH;
 	bool IS_DISCRETE;
 	bool IS_TFname;
@@ -137,7 +140,6 @@ typedef struct Prog_options{
 typedef unsigned short int bits16;
 enum {UP=1, DOWN=2, IGNORE=3};
 
-Prog_options* po;
 /***** Helper functions *****/
 
 void progress(char *format, ...)

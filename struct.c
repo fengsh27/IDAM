@@ -1,5 +1,22 @@
 #include "struct.h"
 
+continuous **arr;
+discrete **arr_c;
+discrete *symbols;
+char **genes;
+char **conds;
+int *gene_uber;
+char **sub_genes;
+bool *sublist;
+int rows, cols, sigma;
+int TFindex;
+int sub_genes_row;
+
+double uber_ratio; 
+char blast[200];
+
+Prog_options* po;
+
 /**************************************************************************/
 
 

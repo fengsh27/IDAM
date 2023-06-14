@@ -7,6 +7,23 @@
 
 #include "get_options.h"
 /*extern double uber_ratio;*/ 
+
+extern continuous **arr;
+extern discrete **arr_c;
+extern discrete *symbols;
+extern char **genes;
+extern char **conds;
+extern int *gene_uber;
+extern char **sub_genes;
+extern bool *sublist;
+extern int rows, cols, sigma;
+extern int TFindex;
+extern int sub_genes_row;
+extern double uber_ratio; 
+extern char blast[200];
+
+extern Prog_options* po;
+
 /***************************************************************************/ 
 static const char USAGE[] = 
 "===================================================================\n\
@@ -50,6 +67,7 @@ static void init_options ()
 	strcpy(po->FN, " ");
 	strcpy(po->BN, " ");
 	strcpy(po->LN, " ");
+	po->TAG[0] = 0;
 	strcpy(po->TFname, " ");
 	po->IS_DISCRETE = FALSE;
 	po->IS_TFname = FALSE;
@@ -99,6 +117,7 @@ void get_options (int argc, char* argv[])
 			/*optarg is set by getopt to point at the value of the option argument, for those options that accept arguments*/
 			case 'i': strcpy(po->FN, optarg); break;
 			case 'b': strcpy(po->BN, optarg); break;
+			case 't': strcpy(po->TAG, optarg); break;
 			/*atof can convert string to double*/
 			case 'q': po->QUANTILE = atof(optarg); break;
 			/*atoi can convert string to integer*/

@@ -9,7 +9,7 @@ Edge **edge_list;
 Edge *edge_ptr;
 
 /* from cluster */
-extern bits16 **profile;
+/* extern bits16 **profile;*/
 
 /* global functions */
 extern int cluster (FILE *fw, Edge **el, int n);

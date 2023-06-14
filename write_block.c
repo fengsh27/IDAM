@@ -5,6 +5,27 @@
 
 #include "write_block.h"
 
+extern continuous **arr;
+extern discrete **arr_c;
+extern discrete *symbols;
+extern char **genes;
+extern char **conds;
+extern int *gene_uber;
+extern char **sub_genes;
+extern bool *sublist;
+extern int rows, cols, sigma;
+extern int TFindex;
+extern int sub_genes_row;
+extern double uber_ratio; 
+extern char blast[200];
+
+extern Prog_options* po;
+
+/* from cluster */
+extern bits16 **profile;
+
+/* from make_graph */
+extern int col_width;
 /******************************************************************/
 /* scan through all columns and identify the set within threshold,
  * "fuzziness" of the block is controlled by TOLERANCE (-c)

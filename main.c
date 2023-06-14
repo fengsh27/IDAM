@@ -7,6 +7,22 @@
 
 #include "main.h"
 
+extern continuous **arr;
+extern discrete **arr_c;
+extern discrete *symbols;
+extern char **genes;
+extern char **conds;
+extern int *gene_uber;
+extern char **sub_genes;
+extern bool *sublist;
+extern int rows, cols, sigma;
+extern int TFindex;
+extern int sub_genes_row;
+extern double uber_ratio; 
+extern char blast[200];
+
+extern Prog_options* po;
+
 /***********************************************************************/
 
 int main(int argc, char* argv[])
@@ -42,7 +58,7 @@ int main(int argc, char* argv[])
 		read_continuous(po -> FP);
 		
 		/* formatting rules */
-		discretize(addSuffix(po->FN, ".rules"));
+		discretize(addSuffix(addSuffix(po->FN, ".rules"), po->TAG));
 	}
 	fclose(po->FP);
 
@@ -56,18 +72,36 @@ int main(int argc, char* argv[])
 	/*we can do expansion by activate po->IS_SWITCH*/
 	if (po->IS_SWITCH)
 	{
-		read_and_solve_blocks(po->FB, addSuffix(po->BN, ".expansion"));
+		read_and_solve_blocks(
+			po->FB, addSuffix(
+				addSuffix(po->BN, ".expansion"), po->TAG
+			)
+		);
 	}
 	else
 	{
 		/* formatted file */
-		write_imported(addSuffix(po->FN, ".chars"));
+		write_imported(
+			addSuffix(
+				addSuffix(po->FN, ".chars"), po->TAG
+			)
+		);
 	
 		/* the file that stores all blocks */
 		if (po->IS_list)
-			make_graph(addSuffix(addSuffix(po->FN, po->LN),".modules"));
+			make_graph(
+				addSuffix(
+				    addSuffix(
+					    addSuffix(po->FN, po->LN),".modules"
+				    ), po->TAG
+				)
+			);
 		else
-			make_graph(addSuffix(po->FN, ".modules"));
+			make_graph(
+				addSuffix(
+				    addSuffix(po->FN, ".modules"), po->TAG
+				)
+			);
 
    	}/* end of main else */
 	free(po);

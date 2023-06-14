@@ -14,8 +14,27 @@
  */
 
 #include "make_graph.h"
+
+extern continuous **arr;
+extern discrete **arr_c;
+extern discrete *symbols;
+extern char **genes;
+extern char **conds;
+extern int *gene_uber;
+extern char **sub_genes;
+extern bool *sublist;
+extern int rows, cols, sigma;
+extern int TFindex;
+extern int sub_genes_row;
+extern double uber_ratio; 
+extern char blast[200];
+
+extern Prog_options* po;
+
 /*we can reduce the HEAP_SIZE when the data contain so many genes so that memory is not enough*/
 static const int HEAP_SIZE = 20000000;
+
+extern bits16 **profile;
 /*extern double uber_ratio;*/
 /**************************************************************************/
 

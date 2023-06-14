@@ -13,12 +13,14 @@ char** another_conds;
 int another_rows;
 int another_cols;
 
+/*
 extern continuous **arr;
 extern discrete **arr_c;
 extern discrete *symbols;
 extern char **genes;
 extern char **conds;
 extern int rows, cols, sigma;
+*/
 
 extern char **alloc2c (int rr, int cc);
 extern void print_bc (FILE* fw, Block *b, int num);

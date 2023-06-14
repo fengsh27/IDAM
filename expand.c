@@ -5,6 +5,23 @@
  */
 
 #include "expand.h"
+
+extern continuous **arr;
+extern discrete **arr_c;
+extern discrete *symbols;
+extern char **genes;
+extern char **conds;
+extern int *gene_uber;
+extern char **sub_genes;
+extern bool *sublist;
+extern int rows, cols, sigma;
+extern int TFindex;
+extern int sub_genes_row;
+extern double uber_ratio; 
+extern char blast[200];
+
+extern Prog_options* po;
+
 /**********************************************************************************/
 static char *atom = NULL;
 static char delims[] = " \t\r\n";
@@ -78,7 +95,8 @@ void get_chars_size(FILE *fp)
 	}
 	another_rows = 0;
 	while (getline(&line, &n, fp) >= 0)
-	{		++another_rows;
+	{
+		++another_rows;
 	}
 	fseek(fp, 0, 0);
     progress("File contains %d rows and %d cols", another_rows, another_cols);
@@ -93,7 +111,8 @@ void read_array(FILE *fp)
 
 	/* initialization */	
 	another_genes = alloc2c(another_rows, LABEL_LEN);
-	another_conds = alloc2c(another_cols, LABEL_LEN);	
+	another_conds = alloc2c(another_cols, LABEL_LEN);
+	
     another_arr_c = alloc2c(another_rows, another_cols+1);
 	for ( row = 0; row < another_rows; row++)
 		another_arr_c[row][another_cols] = '\0';
